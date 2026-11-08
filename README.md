@@ -40,9 +40,9 @@ Keep your SAVEDATA private because it contains the account session.
 <td><img src="screenshots/012.png" alt="picture attachment preview" width="480px" height="272px" /></td>
 </tr>
 <tr>
-<td></td>
 <td><img src="screenshots/013.png" alt="emoji selection screen" width="480px" height="272px" /></td>
-<td></td>
+<td><img src="screenshots/014.png" alt="xmb game preview" width="480px" height="272px" /></td>
+<td><img src="screenshots/015.png" alt="xmb savedata preview" width="480px" height="272px" /></td>
 </tr>
 </table>
 
