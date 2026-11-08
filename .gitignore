@@ -1,0 +1,12 @@
+build/
+dist/
+*.o
+*.d
+*.elf
+*.prx
+EBOOT.PBP
+PARAM.SFO
+__pycache__/
+.DS_Store
+config.local.ini
+session*.json*
