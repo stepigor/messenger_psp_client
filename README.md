@@ -1,7 +1,7 @@
 # Messenger for PSP
 
 An independent homebrew client for self-hosted [Stoat API 0.15.1](https://github.com/stoatchat/self-hosted).
-Hardware target: **PSP-3000 with 6.61 ARK-4**. Release: **1.0.0**.
+Hardware target: **PSP-3000 with 6.61 ARK-4**.
 
 - Browse servers, channels, direct messages and group chats.
 - Send and reply to messages, add Unicode or custom emoji reactions, and share photos from the Memory Stick.
