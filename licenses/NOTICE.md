@@ -6,6 +6,7 @@ libraries linked into Messenger. The table identifies their included notices.
 | Component | Notices in this directory |
 | --- | --- |
 | PSPSDK, libcglue, pthreadglue | `pspsdk/LICENSE` |
+| KUBridge import stub from psp-cfw-sdk | `psp-cfw-sdk/gpl-3.0.txt` |
 | Newlib | `newlib/COPYING.NEWLIB` |
 | pthread-embedded | `pthread-embedded/COPYING.LIB`, `pthread-embedded/COPYING.vita`, `pthread-embedded/README.md` |
 | libcurl | `curl-COPYING.txt` |

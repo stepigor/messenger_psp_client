@@ -31,6 +31,7 @@ libraries.
 | libpng | 1.6.53-2 | [libpng](https://github.com/pspdev/psp-packages/tree/7fdc074/libpng) |
 | zlib | 1.3.1-8 | [zlib](https://github.com/pspdev/psp-packages/tree/7fdc074/zlib) |
 | bzip2 | 1.0.8-7 | [bzip2](https://github.com/pspdev/psp-packages/tree/7fdc074/bzip2) |
+| psp-cfw-sdk (KUBridge import stub) | 20260614-2 | [psp-cfw-sdk](https://github.com/pspdev/psp-packages/tree/7fdc074/psp-cfw-sdk) |
 
 ## Relinking pthread-embedded
 

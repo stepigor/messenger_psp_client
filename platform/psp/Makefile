@@ -8,7 +8,7 @@ PSP_FW_VERSION = 661
 INCDIR = ../../include ../../build/gif-source/giflib-5.2.2 $(PSPDEV)/psp/include/freetype2 ../../build/webp-source/libwebp-1.6.0/src
 CFLAGS = -std=c11 -O2 -G0 -Wall -Wextra -Werror -Wno-deprecated-declarations -MMD -MP
 PTHREAD_LIB ?= -lpthread
-LIBS = -Wl,--start-group -ljpeg -lcurl -lcjson ../../build/rtc-psp/libmbedtls.a ../../build/rtc-psp/libmbedx509.a ../../build/rtc-psp/libmbedcrypto.a ../../build/rtc-psp/srtp/libsrtp2.a ../../build/opus-psp/libopus.a -lvorbisfile -lvorbis -logg ../../build/webp-psp/libwebpdemux.a ../../build/webp-psp/libwebpdecoder.a ../../build/gif-psp/libgif.a -lfreetype -lpng -lbz2 -lmbedtls -lmbedx509 -lmbedcrypto -lz -lpthreadglue $(PTHREAD_LIB) -lcglue -lc -lm -Wl,--end-group -lpspaudio -lpspgu -lpsputility -lpsprtc -lpspnet_inet -lpspnet_resolver -lpsppower -lpspwlan
+LIBS = -Wl,--start-group -ljpeg -lcurl -lcjson ../../build/rtc-psp/libmbedtls.a ../../build/rtc-psp/libmbedx509.a ../../build/rtc-psp/libmbedcrypto.a ../../build/rtc-psp/srtp/libsrtp2.a ../../build/opus-psp/libopus.a -lvorbisfile -lvorbis -logg ../../build/webp-psp/libwebpdemux.a ../../build/webp-psp/libwebpdecoder.a ../../build/gif-psp/libgif.a -lfreetype -lpng -lbz2 -lmbedtls -lmbedx509 -lmbedcrypto -lz -lpthreadglue $(PTHREAD_LIB) -lcglue -lc -lm -Wl,--end-group -lpspaudio -lpspgu -lpsputility -lpsprtc -lpspnet_inet -lpspnet_resolver -lpsppower -lpspwlan -lpspkubridge
 EXTRA_TARGETS = EBOOT.PBP
 PSP_EBOOT_TITLE = $(shell sed -n 's/^\#define ST_APP_NAME "\(.*\)"/\1/p' ../../include/stoat.h) $(shell sed -n 's/^\#define ST_APP_VERSION "\(.*\)"/\1/p' ../../include/stoat.h)
 PSP_EBOOT_ICON = ../../build/xmb/ICON0.png

@@ -8,7 +8,7 @@
 #define ST_TEXT_MAX 8001
 #define ST_APP_NAME "Messenger"
 #define ST_APP_SLUG "messenger_psp_client"
-#define ST_APP_VERSION "1.0.0"
+#define ST_APP_VERSION "1.0.1"
 #define ST_PARENTAL_LEVEL 5
 #define ST_DISC_ID "MSGP00001"
 #define ST_API_VERSION "0.15.1"

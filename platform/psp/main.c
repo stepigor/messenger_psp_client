@@ -17,6 +17,8 @@
 #include "preferences.h"
 #include "photos.h"
 #include <stdlib.h>
+#include <limits.h>
+#include <kubridge.h>
 #include <pspkernel.h>
 #include <pspctrl.h>
 #include <pspdebug.h>
@@ -849,12 +851,22 @@ static void activate(void) {
     else if(panels.page==ST_REACTIONS)react_selected();
 }
 #ifndef ST_MAIN_TEST
+static const char *boot_eboot_path(char *file) {
+    /* Loadcore leaves an unresolved weak import as SYSCALL_NOT_LINKED or a
+     * return-only stub. In that case use the normal launcher arguments. */
+    const volatile uint32_t *stub=(const volatile uint32_t *)(uintptr_t)kuKernelInitFileName;
+    if(stub[0]==0x0000054c||(stub[0]==0x03e00008&&stub[1]==0))return NULL;
+    return kuKernelInitFileName(file)==0?file:NULL;
+}
+
 int main(int argc,char **argv) {
-    if(argc&&argv[0]){char directory[512];st_copy(directory,sizeof(directory),argv[0]);char *slash=strrchr(directory,'/');if(slash){*slash=0;chdir(directory);}}
     int callback=sceKernelCreateThread("Callbacks",callbacks,0x11,4096,PSP_THREAD_ATTR_USER,NULL);if(callback>=0)sceKernelStartThread(callback,0,NULL);
     StConfig config;
-    char game[512];StStorage storage;unsigned char nonce[16];
-    if(!getcwd(game,sizeof(game))||!st_storage_paths(&storage,game,&error)||
+    char boot_file[PATH_MAX]={0},cwd[512];StStorage storage;unsigned char nonce[16];
+    /* The SDK's weak KUBridge import exposes the boot path on CFW even when
+     * a launcher supplies no usable argv or working directory. */
+    const char *boot=boot_eboot_path(boot_file);
+    if(!st_storage_locate(&storage,boot,argc>0?argv[0]:NULL,getcwd(cwd,sizeof(cwd)),&error)||
        !st_config_load_assets(storage.config,storage.game,&config,&error)||!ui_init(config.font_file)) {
         pspDebugScreenInit();pspDebugScreenPrintf(ST_APP_NAME ": %s\nCheck install and NotoSans-Regular.ttf",error.text);while(app_running)sceKernelDelayThread(100000);sceKernelExitGame();return 1;
     }
